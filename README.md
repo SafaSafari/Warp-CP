@@ -1,5 +1,5 @@
 # Warp-CP
-Warp Control Panel
+Warp Control Panel For WINDOWS
 
 # HOW TO RUN
 
