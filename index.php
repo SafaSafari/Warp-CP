@@ -110,9 +110,8 @@ if ($a == 1) {
   while (!$proxytype || !in_array($proxytype, ['http', 'https', 'socks4', 'socks5', 'socks4a'])) $proxytype = readline('enter proxy type correctly: ');
   $e = explode("\n", file_get_contents($file));
   foreach ($e as $time => $proxy) {
-    for ($i = 0; $i < 2; $i++) {
+    for ($i = 0; $i < 2; $i++)
       connect('https://api.cloudflareclient.com/v0a977/reg', array('User-Agent: okhttp/3.12.1', 'Content-Type: application/json'), 'POST', array('referrer' => $id), $proxy, $proxytype);
-    }
     exec('title ' . $time . ' FROM ' . sizeof($proxy));
   }
 } elseif ($a == 5) {
@@ -183,8 +182,10 @@ function connect($url, $header, $method = null, $data = null, $proxy = null, $pr
   ($data) ? curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data)) : null;
   if ($proxy) {
     $int = str_ireplace(['http', 'https', 'socks4', 'socks5', 'socks4a'], [0, 2, 4, 5, 6], $proxytype);
-    curl_setopt($ch, CURLOPT_PROXYTYPE, $int);
-    curl_setopt($ch, CURLOPT_PROXY, $proxy);
+    curl_setopt_array($ch, array(
+      CURLOPT_PROXYTYPE => $int,
+      CURLOPT_PROXY => $proxy
+    ));
   }
   $res = curl_exec($ch);
   curl_close($ch);
