@@ -15,4 +15,3 @@ we accept any idea just pull request
 Instagram: https://instagram.com/SafaSafari.ss
 Telegram: https://t.me/SafaSafari
 Twitter: https://twitter.com/SafaSafari3
-Discord: https://discord.gg/NZpKxxU
